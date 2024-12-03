@@ -13,6 +13,11 @@ JayMar921
 `)
 })
 
+app.get("/", (req, res) => {
+    res.status(200).send(`<div>server is running</div>`)
+})
+
+
 const server = app.listen(80, () => {
     console.log("server running")
 })
