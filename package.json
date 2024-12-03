@@ -1,0 +1,31 @@
+{
+  "name": "github-profiler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaymar921/github-profiler.git"
+  },
+  "keywords": [
+    "github",
+    "profiler",
+    "profiler"
+  ],
+  "author": "JayMar921",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaymar921/github-profiler/issues"
+  },
+  "homepage": "https://github.com/jaymar921/github-profiler#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  },
+  "type": "module"
+}
