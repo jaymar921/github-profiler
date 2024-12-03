@@ -8,7 +8,7 @@ app.get("/jaymar/profile-top", (req, res) => {
 })
 
 app.get("/", (req, res) => {
-    res.status(200).send(`<div>server is running</div>`)
+    res.status(200).send(ProfileTop)
 })
 
 app.use(express.static('assets'));
