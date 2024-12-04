@@ -1,11 +1,32 @@
 import express from 'express';
-import { ProfileTop } from './src/constant.js';
+import { ProfileBody, ProfileTop } from './src/constant.js';
 const app = express();
 
 app.get("/jaymar/profile-top", (req, res) => {
     res.setHeader("Content-Type", "image/svg+xml");
     res.status(200).send(ProfileTop)
 })
+
+app.get("/jaymar/profile-body", async (req, res) => {
+    const resp = await fetch("https://api.github.com/users/jaymar921/repos?per_page=100");
+    const data = await resp.json();
+
+    const followerResp = await fetch("https://api.github.com/users/jaymar921/followers?per_page=1000");
+    const followers = await followerResp.json();
+
+    const orgsResp = await fetch("https://api.github.com/users/jaymar921/orgs?per_page=1000");
+    const orgs = await orgsResp.json();
+    
+    const information = { stars: 0, repositories: data.length, followers: followers.length, organizations: orgs.length}
+
+    for(let repo of data){
+        information.stars += repo.stargazers_count;
+    }
+
+    console.log(information)
+    res.status(200).send(ProfileBody(information.stars, information.repositories, information.followers, information.organizations))
+})
+
 
 app.get("/", (req, res) => {
     res.status(200).send(ProfileTop)
