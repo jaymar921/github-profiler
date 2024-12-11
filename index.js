@@ -31,7 +31,17 @@ app.get("/jaymar/profile-body", async (req, res) => {
 
 
 app.get("/", (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader("Access-Control-Allow-Headers", "*");
     res.status(200).send(ProfileTop)
+})
+
+app.get("/test", (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    res.status(200).send("hello world!")
 })
 
 app.use(express.static('assets'));
