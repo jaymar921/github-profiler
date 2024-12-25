@@ -22,8 +22,6 @@ app.get("/jaymar/profile-body", async (req, res) => {
     for(let repo of data){
         information.stars += repo.stargazers_count;
     }
-
-    console.log(information)
     
     res.setHeader("Content-Type", "image/svg+xml");
     res.status(200).send(ProfileBody(information.stars, information.repositories, information.followers, information.organizations))
