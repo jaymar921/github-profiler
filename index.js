@@ -8,7 +8,7 @@ app.get("/jaymar/profile-top", (req, res) => {
 })
 
 app.get("/jaymar/profile-body", async (req, res) => {
-    const resp = await fetch("https://api.github.com/users/jaymar921/repos?per_page=100");
+    const resp = await fetch("https://api.github.com/users/jaymar921/repos?per_page=500");
     const data = await resp.json();
 
     const followerResp = await fetch("https://api.github.com/users/jaymar921/followers?per_page=1000");
